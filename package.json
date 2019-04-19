@@ -4,6 +4,7 @@
   "description": "demo of vue-tabs",
   "main": "index.js",
   "scripts": {
+    "dev": "node build/dev-server.js",
     "build:dev": "node ./build/build.dev.js",
     "build": "node ./build/build.js",
     "lint": "./node_modules/.bin/eslint --fix --ext .js,.vue src",
