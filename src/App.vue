@@ -33,6 +33,9 @@
         :active-name="activeTab"
         @on-tab-remove="removeTab"/>
       </div>
+      <div class="line-style">
+        line 的样式
+      </div>
       <div style="height:300px;width:100%;position:relative">
         <tabs :data="tabsData" 
         :tab-position="position" 
@@ -157,6 +160,14 @@ a {
 .howtouse > div {
   font-family: "Tangerine", cursive;
   font-size: 3rem;
+}
+
+.line-style{
+  text-align:center;
+  margin-bottom:20px;
+  font-weight: bold;
+  font-size:16px;
+  opacity: 0.8;
 }
 </style>
 
