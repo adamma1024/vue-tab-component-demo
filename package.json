@@ -1,7 +1,7 @@
 {
-  "name": "vue-tabs-demo",
+  "name": "vue-tab-component-demo",
   "version": "1.0.0",
-  "description": "demo of vue-tabs",
+  "description": "demo of vue-tab-component",
   "main": "index.js",
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qq240814476/vue-tabs-demo.git"
+    "url": "git+https://github.com/qq240814476/vue-tab-component-demo.git"
   },
   "author": "malin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/qq240814476/vue-tabs-demo/issues"
+    "url": "https://github.com/qq240814476/vue-tab-component-demo/issues"
   },
-  "homepage": "https://github.com/qq240814476/vue-tabs-demo#readme",
+  "homepage": "https://github.com/qq240814476/vue-tab-component-demo#readme",
   "engines": {
     "node": ">= 10.15.0",
     "npm": ">= 6.0.0"

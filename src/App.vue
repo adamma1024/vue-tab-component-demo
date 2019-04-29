@@ -15,7 +15,24 @@
       <Input v-model='activeTab' style="width: 80px" placeholder="输入指定tab id"/>
     </ButtonGroup>
     <div style="height:300px;width:100%;position:relative">
-      <tabs :data="tabsData" :tab-position="position" closable @on-active-tab-change="onChangeActive" ref="tabs" :active-name="activeTab"/>
+      <tabs :data="tabsData" 
+      :tab-position="position" 
+      closable 
+      @on-click="onClick" 
+      ref="tabs"
+      type="card"
+      :active-name="activeTab"
+      @on-tab-remove="removeTab"/>
+    </div>
+    <div style="height:300px;width:100%;position:relative">
+      <tabs :data="tabsData" 
+      :tab-position="position" 
+      closable 
+      @on-click="onClick" 
+      ref="tabs1"
+      type="line"
+      :active-name="activeTab"
+      @on-tab-remove="removeTab"/>
     </div>
   </div>
 </template>
@@ -25,7 +42,7 @@ export default {
     return{
       tabsData:[],
       poss:['top','bottom','left','right'],
-      moreBtns: ['ios-skip-backward', 'ios-skip-forward'],
+      moreBtns: ['ios-skip-backward-outline', 'ios-skip-backward', 'ios-skip-forward', 'ios-skip-forward-outline'],
       changeActive: ['切回选中的tab'],
       position: 'top',
       activeTab: ''
@@ -36,25 +53,38 @@ export default {
       this.position = pos
     },
     changeOffset(index){
-      if(index === 0){
-        this.$refs.tabs.scrollPrev()
-      }else{
-        this.$refs.tabs.scrollNext()
+      switch (index) {
+        case 0 :
+          this.$refs.tabs.goBegin()
+          break;
+        case 1 :
+          this.$refs.tabs.scrollPrev()
+          break;
+        case 2 :
+          this.$refs.tabs.scrollNext()
+          break;
+        case 3 :
+          this.$refs.tabs.goEnd()
+          break;
       }
+    },
+    changeActiveTab(index){
+      this.$refs.tabs.scrollToActiveTab()
+    },
+    onClick(id){
+      this.activeTab = id
     },
     addItem(){
       this.tabsData.push({id: (this.tabsData.length+1).toString(), text:this.tabsData.length+1})
       this.activeTab = this.tabsData.length.toString()
     },
-    changeActiveTab(index){
-      this.$refs.tabs.scrollToActiveTab()
-    },
-    onChangeActive(id){
-      this.activeTab = id
+    removeTab(id){
+      let index = this.tabsData.findIndex(item => item.id === id)
+      this.$delete(this.tabsData, index)
     }
   },
   mounted(){
-    for(let i = 1; i<50; i++){
+    for(let i = 1; i<500; i++){
       this.tabsData.push({id: i.toString(), text: i})
     }
   }
