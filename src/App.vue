@@ -91,21 +91,21 @@ export default {
     changeActiveTab(index){
       this.$refs.tabs.scrollToActiveTab()
     },
-    onClick(id){
-      this.activeTab = id
+    onClick(key){
+      this.activeTab = key
     },
     addItem(){
-      this.tabsData.push({id: (this.tabsData.length+1).toString(), title:this.tabsData.length+1})
+      this.tabsData.push({key: (this.tabsData.length+1).toString(), title:this.tabsData.length+1})
       this.activeTab = this.tabsData.length.toString()
     },
-    removeTab(id){
-      let index = this.tabsData.findIndex(item => item.id === id)
+    removeTab(key){
+      let index = this.tabsData.findIndex(item => item.key === key)
       this.$delete(this.tabsData, index)
     }
   },
   mounted(){
     for(let i = 1; i<5; i++){
-      this.tabsData.push({id: i.toString(), title: i})
+      this.tabsData.push({key: i.toString(), title: i})
     }
   }
 }
