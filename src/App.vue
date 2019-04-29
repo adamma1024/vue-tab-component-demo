@@ -95,7 +95,7 @@ export default {
       this.activeTab = id
     },
     addItem(){
-      this.tabsData.push({id: (this.tabsData.length+1).toString(), text:this.tabsData.length+1})
+      this.tabsData.push({id: (this.tabsData.length+1).toString(), title:this.tabsData.length+1})
       this.activeTab = this.tabsData.length.toString()
     },
     removeTab(id){
@@ -104,8 +104,8 @@ export default {
     }
   },
   mounted(){
-    for(let i = 1; i<500; i++){
-      this.tabsData.push({id: i.toString(), text: i})
+    for(let i = 1; i<5; i++){
+      this.tabsData.push({id: i.toString(), title: i})
     }
   }
 }
