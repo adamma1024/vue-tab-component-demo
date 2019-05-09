@@ -104,8 +104,8 @@ export default {
     }
   },
   mounted(){
-    for(let i = 1; i<5; i++){
-      this.tabsData.push({key: i.toString(), title: i})
+    for(let i = 1; i<500; i++){
+      this.tabsData.push({key: i.toString(), title: '一二三' + i})
     }
   }
 }
