@@ -23,10 +23,14 @@
         <span>切到指定的tab:</span>
         <Input v-model='activeTab' style="width: 80px" placeholder="输入指定tab id"/>
       </ButtonGroup>
+      <ButtonGroup style='margin-bottom:10px;'>
+        <Button @click="isHideBar()" >toggle左右图标</Button>
+      </ButtonGroup>
       <div style="height:300px;width:100%;position:relative">
         <tabs :data="tabsData" 
         :tab-position="position" 
-        closable 
+        closable
+        :hideDirectionBar="isHide"
         @on-click="onClick" 
         ref="tabs"
         type="card"
@@ -37,9 +41,10 @@
         line 的样式
       </div>
       <div style="height:300px;width:100%;position:relative">
-        <tabs :data="tabsData" 
+        <tabs :data="tabsData"
         :tab-position="position" 
-        closable 
+        closable
+        :hideDirectionBar="isHide"
         @on-click="onClick" 
         ref="tabs1"
         type="line"
@@ -65,10 +70,14 @@ export default {
       moreBtns: ['ios-skip-backward-outline', 'ios-skip-backward', 'ios-skip-forward', 'ios-skip-forward-outline'],
       changeActive: ['切回选中的tab'],
       position: 'top',
-      activeTab: ''
+      activeTab: '',
+      isHide: false
     }
   },
   methods: {
+    isHideBar(){
+      this.isHide = !this.isHide
+    },
     changePosition(pos){
       this.position = pos
     },
@@ -104,7 +113,7 @@ export default {
     }
   },
   mounted(){
-    for(let i = 1; i<500; i++){
+    for(let i = 1; i<100; i++){
       this.tabsData.push({key: i.toString(), title: '一二三' + i})
     }
   }
