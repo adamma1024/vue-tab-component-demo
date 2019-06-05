@@ -25,11 +25,11 @@
     "npm": ">= 6.0.0"
   },
   "dependencies": {
+    "iview": "^3.4.0",
     "vue": "^2.6.10",
     "vue-tab-component": "^1.6.0",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.30.0",
-    "iview": "^3.4.0"
+    "webpack": "^4.30.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
