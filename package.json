@@ -27,7 +27,7 @@
   "dependencies": {
     "iview": "^3.4.0",
     "vue": "^2.6.10",
-    "vue-tab-component": "^1.6.0",
+    "vue-tab-component": "^1.6.2",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.30.0"
   },
